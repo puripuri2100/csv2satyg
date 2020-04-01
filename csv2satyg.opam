@@ -1,0 +1,24 @@
+opam-version: "2.0"
+version: "0.1.0"
+maintainer: "puripuri2100"
+authors: ["puripuri2100"]
+synopsis: "Converts CSV file to SATySFi's package file"
+description: """
+Converts CSV file to SATySFi's package file
+"""
+license: "MIT"
+tags: []
+homepage: "https://github.com/puripuri2100/csv2satyg"
+bug-reports: "https://github.com/puripuri2100/csv2satyg/issues"
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "menhir"
+  "yojson"
+]
+build: [
+  [make "-f" "Makefile" "build" "PREFIX=%{prefix}%"]
+]
+install: [
+  [make "-f" "Makefile" "install" "PREFIX=%{prefix}%"]
+]
+dev-repo: "git+https://github.com/puripuri2100/csv2satyg.git"

@@ -3,7 +3,7 @@ TARGET=csv2satyg
 PREFIX=/usr/local
 BINDIR=$(PREFIX)/bin
 
-.PHONY: build install uninstall test
+.PHONY: build install uninstall test demo
 
 build: src
 	-mkdir ${BUILD}
@@ -25,6 +25,10 @@ uninstall:
 clean:
 	rm -rf ${BUILD}
 	rm -rf ${TARGET}
+
+demo:
+	${TARGET} -f test/textcolor.csv -o test/textcolor.satyg
+	${TARGET} -f test/textcolor.csv -o test/textcolor-t.satyg -t "[function;string]" -r "color"
 
 test:
 	./${TARGET} -f test/textcolor.csv -o test/textcolor.satyg
