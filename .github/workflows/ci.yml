@@ -16,6 +16,6 @@ jobs:
       with:
         ocaml-version: ${{ matrix.ocaml-version }}
     - run: opam pin add csv2satyg.dev -n .
-    - run: opam depext -yt xml2saty
+    - run: opam depext -yt csv2satyg
     - run: opam install -t .
     - run: make demo
