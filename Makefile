@@ -12,7 +12,7 @@ build: src
 	cp src/*.ml src/*.mli ${BUILD}
 	cd ${BUILD} && ocamllex lex.mll
 	cd ${BUILD} && menhir parse.mly
-	cd ${BUILD} && ocamlfind ocamlopt -o ${TARGET} -linkpkg -package "csv,str" range.ml error.ml types.ml parse.mli parse.ml lex.ml optionState.mli optionState.ml showSATySFiType.ml main.ml
+	cd ${BUILD} && ocamlfind ocamlopt -o ${TARGET} -linkpkg -package "csv,str" range.ml error.mli error.ml types.ml parse.mli parse.ml lex.ml optionState.mli optionState.ml showSATySFiType.mli showSATySFiType.ml main.ml
 	cp ${BUILD}/${TARGET} ./
 
 install: ${TARGET}
@@ -27,9 +27,9 @@ clean:
 	rm -rf ${TARGET}
 
 demo:
-	${TARGET} -f test/textcolor.csv -o test/textcolor.satyg
-	${TARGET} -f test/textcolor.csv -o test/textcolor-t.satyg -t "[function;string]" -r "color"
+	${TARGET} -f demo/textcolor.csv -o demo/textcolor.satyg
+	${TARGET} -f demo/textcolor.csv -o demo/textcolor-t.satyg -t "[function;string]" -r "color"
 
 test:
-	./${TARGET} -f test/textcolor.csv -o test/textcolor.satyg
-	./${TARGET} -f test/textcolor.csv -o test/textcolor-t.satyg -t "[function;string]" -r "color"
+	./${TARGET} -f demo/textcolor.csv -o demo/textcolor.satyg
+	./${TARGET} -f demo/textcolor.csv -o demo/textcolor-t.satyg -t "[function;string]" -r "color"

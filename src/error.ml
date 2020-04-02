@@ -6,10 +6,13 @@ exception Parser_error
 
 exception Option_error of string
 
+exception CSV_error of string
+
 type t =
   | Lexer
   | Parser
   | Option
+  | CSV
 
 
 let print_error (t:t) str =
@@ -18,6 +21,7 @@ let print_error (t:t) str =
     | Lexer -> "Lexer"
     | Parser -> "Parser"
     | Option -> "Option"
+    | CSV -> "CSV"
   in
   Printf.printf "![%sError]\n%s\n" err_title str
 
@@ -29,3 +33,4 @@ let error_msg t =
       let range = Range.to_string pos in
       print_error Lexer range
     | Option_error(msg) -> print_error Option msg
+    | CSV_error(msg) -> print_error CSV msg

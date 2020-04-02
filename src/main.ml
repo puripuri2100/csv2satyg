@@ -26,7 +26,7 @@ let type_str data config_lst =
   let f csv_lst =
     let rec sub config_lst csv_lst str =
       match (config_lst, csv_lst) with
-      | (x::xs,[]) -> raise (Error.Option_error "null")
+      | (x::xs,[]) -> raise (Error.CSV_error "null")
       | ([],_) -> str
       | (x::[],y::ys) -> str ^ ShowSATySFiType.all x y
       | (x::xs,y::ys) -> sub xs ys (str ^ ShowSATySFiType.all x y ^ ", ")
