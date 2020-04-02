@@ -18,5 +18,3 @@ jobs:
     - run: opam pin add csv2satyg .
     - run: opam depext -yt csv2satyg
     - run: opam install csv2satyg
-    - uses: actions/checkout@master
-    - run: make demo
