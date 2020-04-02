@@ -15,7 +15,7 @@ jobs:
     - uses: avsm/setup-ocaml@master
       with:
         ocaml-version: ${{ matrix.ocaml-version }}
-    - run: opam pin add csv2satyg.dev -n .
+    - run: opam pin add csv2satyg .
     - run: opam depext -yt csv2satyg
-    - run: opam install -t .
+    - run: opam install csv2satyg
     - run: make demo

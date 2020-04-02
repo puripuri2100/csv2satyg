@@ -31,5 +31,5 @@ demo:
 	${TARGET} -f demo/textcolor.csv -o demo/textcolor-t.satyg -t "[function;string]" -r "color"
 
 test:
-	./${TARGET} -f demo/textcolor.csv -o demo/textcolor.satyg
-	./${TARGET} -f demo/textcolor.csv -o demo/textcolor-t.satyg -t "[function;string]" -r "color"
+	./${TARGET} -f test/textcolor.csv -o test/textcolor.satyg
+	./${TARGET} -f test/textcolor.csv -o test/textcolor-t.satyg -t "[function;string]" -r "color"
